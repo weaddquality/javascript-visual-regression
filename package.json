@@ -1,0 +1,10 @@
+{
+  "name": "javascript-visual-regression",
+  "version": "1.0.0",
+  "description": "An experiment with visual regression using javascript",
+  "author": "Måns Nilsson, Stefan Jansson",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
