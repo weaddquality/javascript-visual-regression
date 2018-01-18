@@ -1,2 +1,8 @@
 # Editor / IDE
 .idea
+
+# Node
+node_modules
+
+# Generated files
+*.png
