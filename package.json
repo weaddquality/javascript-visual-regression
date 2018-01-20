@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "An experiment with visual regression using javascript",
   "author": "Måns Nilsson, Stefan Jansson",
+  "repository": "github:weaddquality/javascript-visual-regression",
   "license": "MIT",
   "scripts": {
     "test": "mocha --timeout 15000"
   },
   "dependencies": {
     "mocha": "^5.0.0",
-    "puppeteer": "^1.0.0"
+    "puppeteer": "^1.0.0",
+    "resemblejs": "^2.6.0"
   }
 }
