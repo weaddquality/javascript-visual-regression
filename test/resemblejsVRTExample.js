@@ -14,7 +14,7 @@ describe('VRT Example with Puppeteer and Resemble.js', function() {
     const diffPath = './screenshots/diff/' + this.title + '.png';
     let browser;
     let page;
-
+    
     // resemblejs options - used when comparing images
     const options = {
       output: {
@@ -63,8 +63,11 @@ describe('VRT Example with Puppeteer and Resemble.js', function() {
         comparison,
         options,
       );
-      await fs.writeFile(diffPath, compareImagesResults.getBuffer());
-      assert.equal(compareImagesResults.misMatchPercentage, 0, 'The images don\'t match. Mismatch percentage was: ' + compareImagesResults.misMatchPercentage);
+       
+      if(compareImagesResults.misMatchPercentage > 0) {
+        await fs.writeFile(diffPath, compareImagesResults.getBuffer());
+        assert.fail('The images don\'t match. Mismatch percentage was: ' + compareImagesResults.misMatchPercentage);
+      }
     });
     
     it('should take a bogus image for demonstrating diff image and mismatch values', async function() {
@@ -82,17 +85,17 @@ describe('VRT Example with Puppeteer and Resemble.js', function() {
         bogusImage,
         options,
       );
-
+      
       const misMatchDetected = compareImagesResults.misMatchPercentage > 0 ? true : false;
-
+      
       if(misMatchDetected) {
-      await fs.writeFile('./screenshots/diff/bogusImage.png', compareImagesResults.getBuffer());
+        await fs.writeFile('./screenshots/diff/bogusImage.png', compareImagesResults.getBuffer());
       }
-
+      
       assert.equal(misMatchDetected, true, 'The images match. This is incorrect, because we\'re trying to force an error. ' + 
-        compareImagesResults.misMatchPercentage);
+      compareImagesResults.misMatchPercentage);
     });
-
+    
     after('close the browser', async function() {
       await browser.close();
     });
