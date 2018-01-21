@@ -1,8 +1,11 @@
 # javascript-visual-regression
-An experiment with visual regression using javascript
+An experiment with visual regression testing using javascript
 
 ## installation
 * `npm install`
 
 ## run tests
-* `npm test`
+
+* all tests on linux/windows `npm test`
+* specific test on linux: `npm test ./test/<testfile>`
+* specific test on windows: `npm test .\test\<testfile>`
