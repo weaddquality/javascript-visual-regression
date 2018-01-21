@@ -6,6 +6,5 @@ An experiment with visual regression testing using javascript
 
 ## run tests
 
-* all tests on linux/windows `npm test`
-* specific test on linux: `npm test ./test/<testfile>`
-* specific test on windows: `npm test .\test\<testfile>`
+* all tests: `npm test`
+* specific test: `npm test ./test/<testfile>`
