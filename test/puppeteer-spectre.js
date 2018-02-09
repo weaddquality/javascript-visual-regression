@@ -1,6 +1,7 @@
 const spectreClient = require('spectre-client');
 const puppeteer = require('puppeteer');
 const fs = require('fs');
+const assert = require('assert');
 
 describe('Spotify Footer Logo', function() {
   let client;
@@ -9,7 +10,7 @@ describe('Spotify Footer Logo', function() {
   });
 
   it('should take a screenshot of the footer logo and save to disk', async function() {
-    const browser = await puppeteer.launch({headless: false});
+    const browser = await puppeteer.launch({headless: true});
     const page = await browser.newPage();
     await page.setViewport({
       width: 1280,
@@ -27,6 +28,7 @@ describe('Spotify Footer Logo', function() {
       browser: 'chromium',
       size: '1280',
     };
-    client.then((resolvedClient) => resolvedClient.submitTest(testOptions));
+    client.then((resolvedClient) => resolvedClient.submitTest(testOptions))
+      .then((response) => assert.equal(response.pass, true, `Screenshots don't match`));
   });
 });
