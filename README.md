@@ -16,14 +16,17 @@ An experiment with visual regression testing using javascript
 ### Compare Images (alternatives to look into)
 - [x] resemblejs
 - [ ] pixelmatch
-- [ ] spectre
+- [x] spectre
 
 ### Visualize Results (test report/administration)
-- [ ] spectre 
+- [x] spectre 
 
 ### Packaging
 - [ ] docker
 - [ ] ansible
+
+### Build
+- [ ] jenkins
 
 ### Misc.
 - [ ] eslint
