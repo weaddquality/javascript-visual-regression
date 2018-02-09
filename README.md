@@ -8,7 +8,6 @@ An experiment with visual regression testing using javascript
 * all tests: `npm test`
 * specific test: `npm test ./test/<testfile>`
 
-
 ## Brief Plan / TODO
 ### Generate Screenshots
 - [x] puppeteer
@@ -31,6 +30,6 @@ An experiment with visual regression testing using javascript
 - [ ] travisci
 
 ### Misc.
-- [ ] eslint
+- [x] eslint
 - [ ] gulp
 - [ ] unittests
