@@ -2,7 +2,9 @@ import org.apache.commons.lang.SystemUtils
 
 timestamps {
     node () {
-
+        stage('Checkout') {
+              checkout scm
+        }
     	stage ('Build') {
     	    if (SystemUtils.IS_OS_WINDOWS) {
                 bat 'npm install'
@@ -10,7 +12,6 @@ timestamps {
                 sh 'npm install'
             }
     	}
-
     	stage ('Test') {
     	    if (SystemUtils.IS_OS_WINDOWS) {
                 bat 'npm test ./test/puppeteer-spectre.js'
@@ -18,6 +19,5 @@ timestamps {
                 sh 'npm test ./test/puppeteer-spectre.js'
             }
     	}
-
     }
 }
