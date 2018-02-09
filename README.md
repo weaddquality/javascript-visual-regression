@@ -1,5 +1,5 @@
 # javascript-visual-regression
-An experiment with visual regression testing using javascript
+Visual Regression Testing with puppeteer and spectre
 
 ## Installation
 * `npm install`
