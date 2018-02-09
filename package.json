@@ -1,7 +1,7 @@
 {
   "name": "javascript-visual-regression",
   "version": "1.0.0",
-  "description": "An experiment with visual regression using javascript",
+  "description": "Visual Regression Testing with puppeteer and spectre",
   "author": "Måns Nilsson, Stefan Jansson",
   "repository": "github:weaddquality/javascript-visual-regression",
   "license": "MIT",
