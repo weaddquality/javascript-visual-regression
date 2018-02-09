@@ -3,13 +3,13 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const assert = require('assert');
 
-describe('Spotify Footer Logo', function() {
+describe('VRT Example with Puppeteer and Spectre', function() {
   let client;
-  before('setup spectre', function() {
+  before('setup spectre-client', function() {
     client = spectreClient('Spotify', 'Logo', 'http://localhost:3000');
   });
 
-  it('should take a screenshot of the footer logo and save to disk', async function() {
+  it('should take a screenshot of the footer logo and submit test to spectre', async function() {
     const browser = await puppeteer.launch( { headless: true } );
     const page = await browser.newPage();
     await page.setViewport({
