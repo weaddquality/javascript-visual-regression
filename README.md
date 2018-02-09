@@ -1,4 +1,4 @@
-# javascript-visual-regression [![Build Status](https://travis-ci.org/weaddquality/javascript-visual-regression.png?branch=master)]
+# javascript-visual-regression ![Build Status](https://travis-ci.org/weaddquality/javascript-visual-regression.png?branch=master)
 Visual Regression Testing with puppeteer and spectre
 
 ## Installation
