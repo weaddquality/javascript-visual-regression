@@ -26,10 +26,11 @@ An experiment with visual regression testing using javascript
 - [ ] ansible
 
 ### Build
-- [ ] jenkins
+- [x] jenkins
+- [x] jenkinsfile
+- [ ] travisci
 
 ### Misc.
 - [ ] eslint
-- [ ] travisci
 - [ ] gulp
 - [ ] unittests
