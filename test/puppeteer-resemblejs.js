@@ -35,7 +35,7 @@ describe('VRT Example with Puppeteer and Resemble.js', function() {
     };
     
     before('start browser and generate baseline image if it doesn\'t exist', async function() {
-      browser = await puppeteer.launch({headless: false});
+      browser = await puppeteer.launch( { headless: false } );
       page = await browser.newPage();
       await page.setViewport({
         width: 1280,

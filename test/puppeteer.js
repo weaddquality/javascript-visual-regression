@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 
 describe('Spotify Footer Logo', function() {
   it('should take a screenshot of the footer logo and save to disk', async function() {
-    const browser = await puppeteer.launch({headless: false});
+    const browser = await puppeteer.launch( { headless: false } );
     const page = await browser.newPage();
     await page.setViewport({
       width: 1280,
