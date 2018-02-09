@@ -6,7 +6,8 @@
   "repository": "github:weaddquality/javascript-visual-regression",
   "license": "MIT",
   "scripts": {
-    "test": "mocha --timeout 15000"
+    "test": "mocha --timeout 15000",
+    "lint": "./node_modules/.bin/eslint **/*.js"
   },
   "dependencies": {
     "mocha": "^5.0.0",
