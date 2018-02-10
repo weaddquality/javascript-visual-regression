@@ -27,7 +27,7 @@ Visual Regression Testing with puppeteer and spectre
 ### Build
 - [x] jenkins
 - [x] jenkinsfile
-- [ ] travisci
+- [x] travisci
 
 ### Misc.
 - [x] eslint
