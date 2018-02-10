@@ -2,16 +2,18 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const compareImages = require('resemblejs/compareImages');
 const assert = require('assert');
+const os = require('os');
 
 
 // TODO: 
 // - Refactor to increase reusability and maintainability.
 describe('VRT Example with Puppeteer and Resemble.js', function() {
   describe('Spotify Footer Logo', function() {
-    // this.title is: 'Spotify Footer Logo'
-    const baselinePath = './screenshots/baseline/' + this.title + '.png';
-    const comparisonPath = './screenshots/comparison/' + this.title + '.png';
-    const diffPath = './screenshots/diff/' + this.title + '.png';
+    const headless = false;
+    const screenshotName = `${this.title}_${os.platform()}${headless ? '_headless' : ''}.png`;
+    const baselinePath = `./screenshots/baseline/${screenshotName}`;
+    const comparisonPath = `./screenshots/comparison/${screenshotName}`;
+    const diffPath = `./screenshots/diff/${screenshotName}`;
     let browser;
     let page;
     
@@ -35,7 +37,7 @@ describe('VRT Example with Puppeteer and Resemble.js', function() {
     };
     
     before('start browser and generate baseline image if it doesn\'t exist', async function() {
-      browser = await puppeteer.launch( { headless: false } );
+      browser = await puppeteer.launch( { headless: headless } );
       page = await browser.newPage();
       await page.setViewport({
         width: 1280,
