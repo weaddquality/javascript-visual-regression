@@ -2,7 +2,6 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const compareImages = require('resemblejs/compareImages');
 const assert = require('assert');
-const os = require('os');
 
 
 // TODO: 
@@ -10,7 +9,7 @@ const os = require('os');
 describe('VRT Example with Puppeteer and Resemble.js', function() {
   describe('Spotify Footer Logo', function() {
     const headless = false;
-    const screenshotName = `${this.title}_${os.platform()}${headless ? '_headless' : ''}.png`;
+    const screenshotName = `${this.title}_${process.platform}${headless ? '_headless' : ''}.png`;
     const baselinePath = `./screenshots/baseline/${screenshotName}`;
     const comparisonPath = `./screenshots/comparison/${screenshotName}`;
     const diffPath = `./screenshots/diff/${screenshotName}`;
