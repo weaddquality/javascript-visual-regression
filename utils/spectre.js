@@ -1,7 +1,7 @@
 const spectreClient = require('spectre-client');
 const fs = require('fs');
-const assert = require('assert');
 const conf = require('../conf');
+const assert = require('assert');
 
 exports.postScreenshots = function(project, suite, fileName, size) {
   let client = spectreClient(project, suite, conf.spectre.url);
