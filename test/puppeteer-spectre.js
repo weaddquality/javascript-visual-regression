@@ -14,6 +14,6 @@ describe('VRT Example with Puppeteer and Spectre', function() {
     await footerlogo.screenshot({ path: 'screenshots/footerLogoWithMocha.png' });
     await browser.close();
 
-    spectre.postScreenshots('Spotify', 'Logo', 'footerLogoWithMocha', 'chromium', '1280');
+    spectre.postScreenshots('Spotify', 'Logo', 'footerLogoWithMocha',test '1280');
   });
 });

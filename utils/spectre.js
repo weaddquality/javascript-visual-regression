@@ -1,15 +1,15 @@
 const spectreClient = require('spectre-client');
 const fs = require('fs');
 const assert = require('assert');
+const conf = require('../conf');
 
-// TODO: break out assert to the testfile
-exports.postScreenshots = function(project, suite, fileName, browser, size) {
-  let client = spectreClient(project, suite, 'http://localhost:3000');
-  const screenShot = fs.createReadStream('screenshots/' + fileName +'.png');
+exports.postScreenshots = function(project, suite, fileName, size) {
+  let client = spectreClient(project, suite, conf.spectre.url);
+  const screenShot = fs.createReadStream('screenshots/' + fileName + '.' + conf.spectre.imageFormat);
   const testOptions = {
     screenShot,
     name: fileName,
-    browser: browser,
+    browser: conf.puppeteer.browser,
     size: size,
   };
   client.then((resolvedClient) => resolvedClient.submitTest(testOptions))
