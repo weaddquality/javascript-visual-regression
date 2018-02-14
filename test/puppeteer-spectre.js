@@ -1,16 +1,9 @@
-const spectreClient = require('spectre-client');
 const puppeteer = require('puppeteer');
-const fs = require('fs');
-const assert = require('assert');
+const spectre = require('../utils/spectre');
 
 describe('VRT Example with Puppeteer and Spectre', function() {
-  let client;
-  before('setup spectre-client', function() {
-    client = spectreClient('Spotify', 'Logo', 'http://localhost:3000');
-  });
-
   it('should take a screenshot of the footer logo and submit test to spectre', async function() {
-    const browser = await puppeteer.launch( { headless: true } );
+    const browser = await puppeteer.launch( { headless: false } );
     const page = await browser.newPage();
     await page.setViewport({
       width: 1280,
@@ -21,14 +14,6 @@ describe('VRT Example with Puppeteer and Spectre', function() {
     await footerlogo.screenshot({ path: 'screenshots/footerLogoWithMocha.png' });
     await browser.close();
 
-    const screenShot = fs.createReadStream('screenshots/footerLogoWithMocha.png');
-    const testOptions = {
-      screenShot,
-      name: 'footerLogoWithMocha',
-      browser: 'chromium',
-      size: '1280',
-    };
-    client.then((resolvedClient) => resolvedClient.submitTest(testOptions))
-      .then((response) => assert.equal(response.pass, true, 'Screenshots don\'t match'));
+    spectre.postScreenshots('Spotify', 'Logo', 'footerLogoWithMocha', 'chromium', '1280');
   });
 });
