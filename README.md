@@ -27,9 +27,15 @@ Visual Regression Testing with puppeteer and spectre
 ### Build
 - [x] jenkins
 - [x] jenkinsfile
-- [ ] travisci
+- [x] travisci
+
+### Tests
+- [ ] unit tests
+- [ ] screenshot tests
+- [ ] deployment tests
 
 ### Misc.
 - [x] eslint
 - [ ] gulp
-- [ ] unittests
+
+
