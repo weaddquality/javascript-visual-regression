@@ -45,26 +45,21 @@ save and run your pipeline!
 - [x] puppeteer
 
 ### Compare Images (alternatives to look into)
-- [x] resemblejs
-- [ ] pixelmatch
+- [x] resemblejs (see branch)
+- [/] pixelmatch
 - [x] spectre
 
 ### Visualize Results (test report/administration)
 - [x] spectre 
-
-### Packaging
-- [ ] docker
-- [ ] ansible
 
 ### Build
 - [x] jenkins
 - [x] jenkinsfile
 - [x] travisci
 
-### Tests
-- [ ] unit tests
-- [ ] screenshot tests
-- [ ] deployment tests
+### Packaging
+- [ ] ansible
+- [ ] docker
 
 ### Misc.
 - [x] eslint
