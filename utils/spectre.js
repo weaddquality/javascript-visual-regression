@@ -3,8 +3,8 @@ const fs = require('fs');
 const conf = require('../conf');
 const assert = require('assert');
 
-exports.postScreenshots = function(project, suite, fileName, size) {
-  let client = spectreClient(project, suite, conf.spectre.url);
+exports.postScreenshots = async function(project, suite, fileName, size) {
+  const client = await spectreClient(project, suite, conf.spectre.url);
   const screenShot = fs.createReadStream('screenshots/' + fileName + '.' + conf.spectre.imageFormat);
   const testOptions = {
     screenShot,
@@ -12,6 +12,5 @@ exports.postScreenshots = function(project, suite, fileName, size) {
     browser: conf.puppeteer.browser,
     size: size,
   };
-  client.then((resolvedClient) => resolvedClient.submitTest(testOptions))
-    .then((response) => assert.equal(response.pass, true, 'A diff between the screenshots has been detected'));
+  return await client.submitTest(testOptions);
 };
