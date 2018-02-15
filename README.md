@@ -46,7 +46,7 @@ save and run your pipeline!
 
 ### Compare Images (alternatives to look into)
 - [x] resemblejs (see branch)
-- [/] pixelmatch
+- [ ] pixelmatch
 - [x] spectre
 
 ### Visualize Results (test report/administration)
