@@ -8,7 +8,7 @@ exports.takeScreenshot = async function(url, elementSelector, screenshotName, vi
     height: viewportHeight
   });
   await page.goto(url, { waitUntil: 'networkidle2' });
-  const footerlogo = await page.$(elementSelector);
-  await footerlogo.screenshot({ path: 'screenshots/' + screenshotName + '.png' });
+  const element = await page.$(elementSelector);
+  await element.screenshot({ path: 'screenshots/' + screenshotName + '.png' });
   await browser.close();
 };
