@@ -1,14 +1,14 @@
 const puppeteer = require('puppeteer');
 
-exports.takeScreenshot = async function(url, elementSelector, screenshotName, viewportWidth, viewportHeight, mode) {
-  const browser = await puppeteer.launch( { headless: mode } );
+exports.takeScreenshot = async function(settings) {
+  const browser = await puppeteer.launch( { headless: settings.headless } );
   const page = await browser.newPage();
   await page.setViewport({
-    width: viewportWidth,
-    height: viewportHeight
+    width: settings.width,
+    height: settings.height
   });
-  await page.goto(url, { waitUntil: 'networkidle2' });
-  const element = await page.$(elementSelector);
-  await element.screenshot({ path: 'screenshots/' + screenshotName + '.png' });
+  await page.goto(settings.url, { waitUntil: 'networkidle2' });
+  const element = await page.$(settings.element);
+  await element.screenshot({ path: 'screenshots/' + settings.imageName + '.png' });
   await browser.close();
 };
