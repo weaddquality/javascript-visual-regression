@@ -4,7 +4,7 @@ const conf = require('../conf');
 
 exports.postScreenshots = async function(settings) {
   const client = await spectreClient(settings.project, settings.suite, conf.spectre.url);
-  const screenShot = fs.createReadStream('screenshots/' + settings.imageName + '.' + conf.spectre.imageFormat);
+  const screenShot = fs.createReadStream('screenshots/' + settings.imageName + '-' + settings.timestamp + '.' + conf.spectre.imageFormat);
   const testOptions = {
     screenShot,
     name: settings.imageName,

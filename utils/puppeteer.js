@@ -9,6 +9,6 @@ exports.takeScreenshot = async function(settings) {
   });
   await page.goto(settings.url, { waitUntil: 'networkidle2' });
   const element = await page.$(settings.element);
-  await element.screenshot({ path: 'screenshots/' + settings.imageName + '.png' });
+  await element.screenshot({ path: 'screenshots/' + settings.imageName + '-' + settings.timestamp + '.png' });
   await browser.close();
 };
