@@ -13,7 +13,7 @@ exports.takeScreenshot = async function(settings) {
   await cleaner.cleanFolder('screenshots');
   const element = await page.$(settings.element);
   if (conf.puppeteer.writeScreenshotToDisk === true) {
-    await element.screenshot({ path: 'screenshots/' + settings.imageName + '-' + settings.timestamp + '.png' });
+    await element.screenshot({ path: 'screenshots/' + settings.imageName + '_' + settings.timestamp + '.png' });
   } else if (conf.puppeteer.writeScreenshotToDisk === false) {
     settings.snapshot = await element.screenshot();
   }
