@@ -1,5 +1,5 @@
-const spectre = require('../utils/spectre');
 const puppeteer = require('../utils/puppeteer');
+const spectre = require('../utils/spectre');
 const date = require('../utils/timestamp');
 const assert = require('assert');
 
@@ -13,13 +13,14 @@ let settings = {
   project: 'Spotify',
   suite: 'Logo',
   fuzzLevel: '0',
-  timestamp: date.getTimestamp()
+  timestamp: date.getTimestamp(),
+  snapshot: ''
 };
 
 describe('VRT Example with Puppeteer and Spectre', function() {
   it('should take a screenshot of the footer logo and post screenshots to spectre', async function() {
     await puppeteer.takeScreenshot(settings);
-    const result = await spectre.postScreenshots(settings);
+    const result = await spectre.postScreenshot(settings);
     assert(result.pass, 'A diff between the screenshots has been detected');
   });
 });

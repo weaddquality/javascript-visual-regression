@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const conf = require('../conf');
 
 exports.takeScreenshot = async function(settings) {
   const browser = await puppeteer.launch( { headless: settings.headless } );
@@ -9,6 +10,10 @@ exports.takeScreenshot = async function(settings) {
   });
   await page.goto(settings.url, { waitUntil: 'networkidle2' });
   const element = await page.$(settings.element);
-  await element.screenshot({ path: 'screenshots/' + settings.imageName + '-' + settings.timestamp + '.png' });
+  if (conf.puppeteer.writeScreenshotToDisk === true) {
+    await element.screenshot({ path: 'screenshots/' + settings.imageName + '-' + settings.timestamp + '.png' });
+  } else if (conf.puppeteer.writeScreenshotToDisk === false) {
+    settings.snapshot = await element.screenshot();
+  }
   await browser.close();
 };

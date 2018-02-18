@@ -1,5 +1,6 @@
 exports.puppeteer = {
-  browser: 'chromium'
+  browser: 'chromium',
+  writeScreenshotToDisk: false
 };
 
 exports.spectre = {

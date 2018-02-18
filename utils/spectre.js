@@ -2,9 +2,12 @@ const spectreClient = require('spectre-client');
 const fs = require('fs');
 const conf = require('../conf');
 
-exports.postScreenshots = async function(settings) {
+exports.postScreenshot = async function(settings) {
   const client = await spectreClient(settings.project, settings.suite, conf.spectre.url);
-  const screenShot = fs.createReadStream('screenshots/' + settings.imageName + '-' + settings.timestamp + '.' + conf.spectre.imageFormat);
+  let screenShot = '';
+  if (conf.puppeteer.writeScreenshotToDisk) {
+    screenShot = fs.createReadStream('screenshots/' + settings.imageName + '-' + settings.timestamp + '.' + conf.spectre.imageFormat);
+  } else { screenShot = settings.snapshot; }
   const testOptions = {
     screenShot,
     name: settings.imageName,
