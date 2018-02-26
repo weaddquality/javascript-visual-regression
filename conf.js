@@ -1,7 +1,6 @@
 exports.puppeteer = {
   useChromeNotChromium: false,
-  chromePath: '/usr/bin/google-chrome',
-  writeScreenshotToDisk: false
+  chromePath: '/usr/bin/google-chrome'
 };
 
 exports.spectre = {

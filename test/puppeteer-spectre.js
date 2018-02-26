@@ -1,6 +1,5 @@
 const puppeteer = require('../utils/puppeteer');
 const spectre = require('../utils/spectre');
-const date = require('../utils/timestamp');
 const assert = require('assert');
 
 let settings = {
@@ -12,9 +11,7 @@ let settings = {
   headless: true,
   project: 'Spotify',
   suite: 'Logo',
-  fuzzLevel: '2',
-  timestamp: date.getTimestamp(),
-  snapshot: ''
+  fuzzLevel: '2%'
 };
 
 describe('VRT Example with Puppeteer and Spectre', function() {
