@@ -11,9 +11,10 @@ exports.postScreenshot = async function(settings) {
   const testOptions = {
     screenShot,
     name: settings.imageName,
-    browser: conf.puppeteer.browser,
+    browser: conf.puppeteer.useChromeNotChromium ? 'chrome' : 'chromium',
     size: settings.width.toString(),
-    fuzzLevel: settings.fuzzLevel,
+    sourceUrl: settings.url,
+    fuzzLevel: settings.fuzzLevel
   };
   return await client.submitTest(testOptions);
 };

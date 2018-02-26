@@ -3,7 +3,12 @@ const conf = require('../conf');
 const cleaner = require('./cleaner');
 
 exports.takeScreenshot = async function(settings) {
-  const browser = await puppeteer.launch( { headless: settings.headless } );
+  let browser;
+  if (conf.puppeteer.useChromeNotChromium === true) {
+    browser = await puppeteer.launch( { headless: settings.headless, executablePath: conf.puppeteer.chromePath } );
+  } else {
+    browser = await puppeteer.launch( { headless: settings.headless } );
+  }
   const page = await browser.newPage();
   await page.setViewport({
     width: settings.width,

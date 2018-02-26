@@ -12,7 +12,7 @@ let settings = {
   headless: true,
   project: 'Spotify',
   suite: 'Logo',
-  fuzzLevel: '0',
+  fuzzLevel: '2',
   timestamp: date.getTimestamp(),
   snapshot: ''
 };

@@ -1,5 +1,6 @@
 exports.puppeteer = {
-  browser: 'chromium',
+  useChromeNotChromium: false,
+  chromePath: '/usr/bin/google-chrome',
   writeScreenshotToDisk: false
 };
 
