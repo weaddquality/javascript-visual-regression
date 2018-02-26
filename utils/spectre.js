@@ -12,9 +12,9 @@ exports.postScreenshot = async function(settings) {
     screenShot,
     name: settings.imageName,
     browser: conf.puppeteer.useChromeNotChromium ? 'chrome' : 'chromium',
-    size: settings.width.toString(),
+    size: (settings.width + 'x' + settings.height).toString(),
     sourceUrl: settings.url,
-    fuzzLevel: settings.fuzzLevel
+    fuzz_level: settings.fuzzLevel
   };
   return await client.submitTest(testOptions);
 };
