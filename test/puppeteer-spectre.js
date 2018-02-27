@@ -4,13 +4,13 @@ const assert = require('assert');
 
 let settings = {
   url: 'https://www.spotify.com/se/',
-  element: '.footer-logo a',
-  imageName: 'footerLogo',
+  element: '.footer-logo a',  
+  testName: 'Footer logo',
   width: 1280,
   height: 1024,
   headless: true,
-  project: 'Spotify',
-  suite: 'Logo',
+  projectName: 'Spotify',
+  testSuite: 'Logo',
   fuzzLevel: '2%'
 };
 
