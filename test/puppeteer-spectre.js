@@ -2,7 +2,7 @@ const puppeteer = require('../utils/puppeteer');
 const spectre = require('../utils/spectre');
 const asserts = require('../utils/asserts');
 
-let settings = {
+const settings = {
   url: 'https://www.spotify.com/se/',
   element: '.footer-logo a',
   testName: 'Footer logo',
