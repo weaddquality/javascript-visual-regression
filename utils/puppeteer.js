@@ -4,9 +4,9 @@ const conf = require('../conf');
 exports.takeScreenshot = async function(settings) {
   let browser;
   if (conf.puppeteer.useChromeNotChromium === true) {
-    browser = await puppeteer.launch( { headless: settings.headless, executablePath: conf.puppeteer.chromePath } );
+    browser = await puppeteer.launch( { headless: conf.puppeteer.headless, executablePath: conf.puppeteer.chromePath } );
   } else {
-    browser = await puppeteer.launch( { headless: settings.headless } );
+    browser = await puppeteer.launch( { headless: conf.puppeteer.headless } );
   }
   const page = await browser.newPage();
   await page.setViewport({

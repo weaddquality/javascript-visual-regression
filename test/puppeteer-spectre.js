@@ -8,7 +8,6 @@ let settings = {
   testName: 'Footer logo',
   width: 1280,
   height: 1024,
-  headless: true,
   projectName: 'Spotify',
   testSuite: 'Logo',
   fuzzLevel: '2%'
