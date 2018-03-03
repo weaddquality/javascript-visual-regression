@@ -6,6 +6,7 @@ const settings = {
   url: 'https://www.spotify.com/se/',
   element: '.footer',
   hideElements: ['.footer-logo a', '.col-social .nav'],
+  removeElements: ['nav:nth-child(1) > div:nth-child(2)'],
   testName: 'Footer logo',
   width: 1280,
   height: 1024,

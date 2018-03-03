@@ -22,6 +22,14 @@ exports.takeScreenshot = async function(settings) {
         }, element);
       }));
   }
+  if (!(settings.removeElements === undefined) && !(settings.removeElements.length === 0)) {
+    await Promise.all(
+      settings.removeElements.map(function(element) {
+        page.evaluate(function(element) {
+          document.querySelector(element).style.setProperty('display', 'none');
+        }, element);
+      }));
+  }
   const element = await page.$(settings.element);
   settings.snapshot = await element.screenshot();
   await browser.close();
