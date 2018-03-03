@@ -14,12 +14,14 @@ exports.takeScreenshot = async function(settings) {
     height: settings.height
   });
   await page.goto(settings.url, { waitUntil: 'networkidle2' });
-  await Promise.all(
-    settings.hideElements.map(function(element) {
-      page.evaluate(function(element) {
-        document.querySelector(element).style.setProperty('visibility', 'hidden');
-      }, element);
-    }));
+  if (!(settings.hideElements === undefined) && !(settings.hideElements.length === 0)) {
+    await Promise.all(
+      settings.hideElements.map(function(element) {
+        page.evaluate(function(element) {
+          document.querySelector(element).style.setProperty('visibility', 'hidden');
+        }, element);
+      }));
+  }
   const element = await page.$(settings.element);
   settings.snapshot = await element.screenshot();
   await browser.close();
