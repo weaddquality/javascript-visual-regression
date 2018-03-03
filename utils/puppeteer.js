@@ -15,7 +15,7 @@ exports.takeScreenshot = async function(settings) {
   });
   await page.goto(settings.url, { waitUntil: 'networkidle2' });
   await Promise.all(
-    settings.hideElements.map(async function(element) {
+    settings.hideElements.map(function(element) {
       page.evaluate(function(element) {
         document.querySelector(element).style.setProperty('visibility', 'hidden');
       }, element);
