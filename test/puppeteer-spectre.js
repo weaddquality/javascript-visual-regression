@@ -5,7 +5,7 @@ const asserts = require('../utils/asserts');
 const settings = {
   url: 'https://www.spotify.com/se/',
   element: '.footer',
-  hideElement: '.footer-logo a',
+  hideElements: ['.footer-logo a', '.col-social .nav'],
   testName: 'Footer logo',
   width: 1280,
   height: 1024,

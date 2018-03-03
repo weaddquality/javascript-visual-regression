@@ -14,9 +14,12 @@ exports.takeScreenshot = async function(settings) {
     height: settings.height
   });
   await page.goto(settings.url, { waitUntil: 'networkidle2' });
-  await page.evaluate(function(settings) {
-    document.querySelector(settings.hideElement).style.setProperty('visibility', 'hidden') // eslint-disable-line semi
-  }, settings);
+  await Promise.all(
+    settings.hideElements.map(async function(element) {
+      await page.evaluate(function() {
+        document.querySelector(element).style.setProperty('visibility', 'hidden');
+      }, element);
+    }));
   const element = await page.$(settings.element);
   settings.snapshot = await element.screenshot();
   await browser.close();
