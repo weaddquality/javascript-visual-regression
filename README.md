@@ -19,9 +19,9 @@ you need nodejs, git, docker and docker-compose installed
 `npm install`
 
 ## Run tests
-`npm test` for all tests
+`npm test -g ./examples` for all tests
 
-`npm test ./examples/<testfile>` for a specific test
+`npm test -g ./examples/<testfile>` for a specific test
 
 ## Run tests with jenkins
 you need jenkins installed with pipeline plugins
