@@ -23,6 +23,12 @@ you need nodejs, git, docker and docker-compose installed
 
 `npm test -g ./examples/<testfile>` for a specific test
 
+Want to set a specific Spectre URL? Set a environment variable named `spectreUrl` with the url, before running the tests.
+
+Using PowerShell: `$env:spectreUrl = "<url to spectre instance>"; npm test -g ./examples`
+
+Using bash: `spectreUrl=<url to spectre instance> npm test -g ./examples`
+
 ## Run tests with jenkins
 you need jenkins installed with pipeline plugins
 
