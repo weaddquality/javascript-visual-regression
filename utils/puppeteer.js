@@ -24,11 +24,11 @@ exports.takeScreenshot = async function(settings) {
 
   await page.goto(settings.url, { waitUntil: 'networkidle2' });
 
-  if(elements.hide.length) {
+  if (!(settings.hideElements === undefined) && !(settings.hideElements.length === 0)) {
     await elements.hide(settings, page);
   }
 
-  if(elements.remove.length) {
+  if (!(settings.removeElements === undefined) && !(settings.removeElements.length === 0)) {
     await elements.remove(settings, page);
   }
 
