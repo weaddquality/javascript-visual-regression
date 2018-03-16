@@ -1,3 +1,5 @@
+const spectreUrl = process.env.spectreUrl || 'http://localhost:3000';
+
 exports.puppeteer = {
   headless: true,
   useChromeNotChromium: false,
@@ -5,6 +7,6 @@ exports.puppeteer = {
 };
 
 exports.spectre = {
-  url: 'http://localhost:3000',
+  url: spectreUrl,
   imageFormat: 'png'
 };
