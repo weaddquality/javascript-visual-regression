@@ -2,27 +2,15 @@ const puppeteer = require('puppeteer');
 const conf = require('../conf');
 const elements = require('./elements');
 
-exports.takeScreenshot = async function(settings) {
-  let browser;
+exports.launchBrowser = async function() {
   if (conf.puppeteer.useChromeNotChromium === true) {
     browser = await puppeteer.launch( { headless: conf.puppeteer.headless, executablePath: conf.puppeteer.chromePath } );
   } else {
     browser = await puppeteer.launch( { headless: conf.puppeteer.headless } );
   }
-  const page = await browser.newPage();
+};
 
-  if(settings.width && settings.length) {
-    await page.setViewport({
-      width: settings.width,
-      height: settings.height
-    });
-  }
-  else {
-    settings.width = await page.viewport().width;
-    settings.height = await page.viewport().height;
-  }
-
-  await page.goto(settings.url, { waitUntil: 'networkidle2' });
+exports.takeScreenshot = async function(selector, settings, page) {
 
   if (!(settings.hideElements === undefined) && !(settings.hideElements.length === 0)) {
     await elements.hide(settings, page);
@@ -32,7 +20,6 @@ exports.takeScreenshot = async function(settings) {
     await elements.remove(settings, page);
   }
 
-  const element = await page.$(settings.element);
-  settings.snapshot = await element.screenshot();
-  await browser.close();
+  const element = await page.$(selector);
+  return await element.screenshot();
 };
